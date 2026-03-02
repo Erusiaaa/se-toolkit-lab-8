@@ -321,7 +321,7 @@ blank_issues_enabled: false
 ## Checklist
 
 - [ ] I made this PR to the `main` branch **of my fork (NOT the course instructors' repo)**.
-- [ ] I see `base: main` <- `compare: <branch-name>` above the PR title.
+- [ ] I see `base: main` <- `compare: <branch>` above the PR title.
 - [ ] I edited the line `- Closes #<issue-number>`.
 - [ ] I wrote clear commit messages.
 - [ ] I reviewed my own diff before requesting review.
