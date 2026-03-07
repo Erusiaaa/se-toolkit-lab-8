@@ -67,7 +67,7 @@ Every task file (`task-N.md`) must follow this structure:
 
 <h4>Diagram</h4>
 
-<Mermaid sequence diagram showing the overall task flow — optional, omit if not needed.>
+<Mermaid sequence diagram showing the overall task flow — required whenever applicable.>
 
 <h4>Table of contents</h4>
 
@@ -126,7 +126,7 @@ Title: `[Task] <Task title>`
 ### 1.1. Key rules for task documents
 
 - **Time, Purpose, Context, Diagram, Table of contents** use `<h4>` HTML tags so they don't appear in the document's auto-generated ToC.
-- **Diagram** is optional. Include it when a sequence diagram helps students understand the overall task flow — who does what, in what order, across which environments — before they start the steps. Use a `mermaid` fenced code block with `sequenceDiagram`. Place it between Context and Table of contents. Use Mermaid for sequence/flow diagrams (actions across actors and environments, e.g., Developer → Local → VM → GitHub). Use `.drawio.svg` (see [Diagrams](./common.md#413-diagrams)) for architecture or structural diagrams that need to be editable and reused across files.
+- **Diagram** is required whenever the task involves actions across multiple actors or environments. Include it so students understand the overall task flow — who does what, in what order, across which environments — before they start the steps. Omit only for simple, single-environment tasks where the flow is self-evident from the steps alone. Use a `mermaid` fenced code block with `sequenceDiagram`. Place it between Context and Table of contents. Use Mermaid for sequence/flow diagrams (actions across actors and environments, e.g., Developer → Local → VM → GitHub). Use `.drawio.svg` (see [Diagrams](./common.md#413-diagrams)) for architecture or structural diagrams that need to be editable and reused across files.
 - **Top-level sections are numbered:** `## 1. Steps` and `## 2. Acceptance criteria`. Steps are numbered as `### 1.1.`, `### 1.2.`, etc. This matches the pattern used in `setup.md` and makes anchor links unambiguous.
 - When a `###` step covers multiple distinct sub-goals, split it into `####` sub-sections with a deeper number (`#### 1.3.1.`, `#### 1.3.2.`, etc.) and a descriptive title for each. Reflect the hierarchy in the ToC with indented entries. Add an inline mini-ToC (a bullet list of links to the sub-sections) right after the `###` heading so readers see the structure without scrolling back to the document-level ToC. Use a flat numbered list only when all actions serve a single, unified goal within the same sub-section.
 - **Step 1.1** ("Follow the Git workflow") is present in tasks that require a branch + PR. Omit for tasks that don't produce commits (e.g., "Run the web server").
@@ -741,6 +741,7 @@ See [Autochecker-verifiable outcomes](#421-autochecker-verifiable-outcomes).
 - [ ] Partner/collaborator setup is documented.
 - [ ] `CONTRIBUTORS.md` exists with placeholder entry.
 - [ ] Diagrams use `.drawio.svg` format.
+- [ ] Tasks with actions across multiple actors or environments include a Mermaid sequence diagram.
 - [ ] `<!-- TODO -->` markers exist for unfinished sections.
 
 **Conditional (include when applicable):**
