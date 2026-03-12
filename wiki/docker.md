@@ -153,6 +153,9 @@ If you installed `Docker Desktop`:
 
 ## Common `Docker` commands
 
+- [`docker run`](#docker-run)
+- [`docker ps`](#docker-ps)
+
 ### `docker run`
 
 `docker run` starts a container from an image.
