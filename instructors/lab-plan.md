@@ -337,11 +337,10 @@ Multi-step questions. Planted bugs produce log errors the agent must find, trace
   task: 3
   bot_only: true
   question: "Check the application logs for errors. What is causing the most recent error and which file is it in?"
-  expected_bug: {contains: "ZeroDivisionError"}
-  expected_location: {contains: "analytics.py"}
+  expected_answer: {contains: "ZeroDivisionError"}
+  expected_source: {contains: "analytics.py"}
   expected_fix: {any_of: ["check", "empty", "zero", "len", "guard"]}
   feedback: "Read the error traceback in the logs. Which file and line number caused it?"
-  bug_location: "backend/app/routers/analytics.py"
   check_tools: [query_api, read_file]
 ```
 
@@ -349,12 +348,14 @@ Multi-step questions. Planted bugs produce log errors the agent must find, trace
 
 | Field | Check | Required |
 |-------|-------|----------|
-| `answer` | Contains bug identifier (`expected_bug`) | Yes |
-| `answer` | Contains source file (`expected_location`) | Yes |
+| `answer` | Contains bug identifier (`expected_answer`) | Yes |
+| `source` | Contains file path (`expected_source`) | Yes |
 | `answer` | Contains fix keyword (`expected_fix`) | Optional |
 | `tool_calls` | Includes all tools from `check_tools` (chain) | Yes |
 
-**On failure:** Show `feedback` (points to where to look, not the answer). The `bug_location` field tells the autochecker where the bug is for logging purposes but is not shown to the student.
+**On failure:** Show `feedback` (points to where to look, not the answer).
+
+**Why `source`:** The bug location (file path) is the same kind of information as the wiki section in Class A — it's *where* the answer came from. The agent puts it in `source`, keeping `answer` focused on *what* the bug is and how to fix it. This is consistent across all question classes: `source` = where, `answer` = what.
 
 **Count:** 3-5 hidden (bot eval only).
 
@@ -391,7 +392,7 @@ Open-ended questions where keyword matching isn't sufficient.
 | A: Wiki lookup | 1 | ~15 | ~5 | Source path match + tool use | Show expected source |
 | B: Static system facts | 2 | ~8 | ~3 | Keyword match + tool use | Show `feedback` hint |
 | C: Data-dependent queries | 2 | ~3 | ~2 | Numeric range + tool use | Show `feedback` hint |
-| D: Log analysis chain | 3 | 0 | 3-5 | Bug ID + location + tool chain | Show `feedback` hint |
+| D: Log analysis chain | 3 | 0 | 3-5 | Bug ID in `answer` + file in `source` + tool chain | Show `feedback` hint |
 | E: LLM-judged reasoning | 3 | 0 | 3-5 | LLM judge + tool use | Show `feedback` hint |
 | **Total** | | **~26** | **~13-17** | | |
 
