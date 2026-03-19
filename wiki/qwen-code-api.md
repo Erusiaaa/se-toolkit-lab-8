@@ -31,6 +31,8 @@ The [API key](./web-api.md#api-key) that is used to authorize requests to the [`
 
 You can use almost any (alphanumeric) string as the `Qwen Code` API key.
 
+You store the key in [`QWEN_CODE_API_KEY`](./qwen-code-api-dotenv-secret.md#qwen_code_api_key) in [`qwen-code-api/.env.secret`](./qwen-code-api-dotenv-secret.md#qwen_code_api_key).
+
 ## `Qwen Code` API host port
 
 The [port](./computer-networks.md#port) at which the [`Qwen Code` API](./qwen-code-api.md#what-is-qwen-code-api) is available on the [host](./computer-networks.md#host) where it is deployed.
