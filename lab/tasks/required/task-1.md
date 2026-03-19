@@ -20,7 +20,7 @@ sequenceDiagram
     end
 
     User->>agent.py: CLI arg (question)
-    agent.py->>Proxy: POST /v1/chat/completions
+    agent.py->>Proxy: POST /chat/completions
     Proxy->>LLM: proxy request
     LLM-->>Proxy: response
     Proxy-->>agent.py: response
