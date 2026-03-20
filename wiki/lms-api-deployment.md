@@ -39,7 +39,7 @@ This page describes how to deploy the [LMS API](./lms-api.md#about-the-lms-api) 
 
 ### Enter the repository directory (REMOTE)
 
-1. To enter the [directory](./file-system.md#directory) of your [repository](./git.md#repository),
+1. To enter the repository directory,
 
    [run in the `VS Code Terminal`](./vs-code.md#run-a-command-in-the-vs-code-terminal):
 
