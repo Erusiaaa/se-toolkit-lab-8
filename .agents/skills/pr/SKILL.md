@@ -1,15 +1,19 @@
 ---
 name: pr
-description: Create a pull request using this project's PR template
+description: Create or update a pull request using this project's PR template
 disable-model-invocation: true
 argument-hint: "[issue-number]"
 ---
 
-Create a pull request following the project's PR template at `.github/pull_request_template.md`.
+Create or update a pull request following the project's PR template at `.github/pull_request_template.md`.
 
 ## Rules
 
 - Run `git fetch origin main` to update the remote ref, then run `git log origin/main..HEAD` to get the commit messages for all commits between the local current branch and the remote main branch.
+- Check if an open (unmerged) PR already exists for the current branch by running `gh pr view --json state,url,title 2>/dev/null`. If a PR exists and its state is `OPEN`, follow the **Updating an existing PR** flow below. Otherwise, follow the **Creating a new PR** flow.
+
+### Creating a new PR
+
 - Write a concise PR title summarizing the changes (under 72 characters). Base it on the commit messages.
 - Fill in the Summary section with a bullet list of the key changes in the PR, written in imperative voice (e.g. "Rename appendix to wiki"). Derive each bullet point from the commit messages — do not invent or assume changes not described in them.
 - If `$ARGUMENTS` contains an issue number, include `- Closes #<issue-number>` in the Summary section; otherwise omit that line entirely.
@@ -18,3 +22,10 @@ Create a pull request following the project's PR template at `.github/pull_reque
 - Do not mark any checklist items. Leave all checkboxes unchecked (`[ ]`) for the user to review and check manually.
 - Do not push or create the PR without showing the user the title and body first and asking for confirmation.
 - After the PR is created, suggest that the user edit the PR description directly on GitHub (provide the PR URL) to add any additional context or refine the auto-generated summary.
+
+### Updating an existing PR
+
+- Regenerate the PR title and body using the same rules as for a new PR (concise title, imperative bullet list derived from all commits, checklist unchecked).
+- Show the user the updated title and body and ask for confirmation before applying.
+- Use `gh pr edit` with `--title` and `--body` to update the existing PR.
+- After updating, suggest that the user review and further edit the PR description directly on GitHub (provide the PR URL).
