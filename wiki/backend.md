@@ -7,7 +7,7 @@
 
 ## What is a backend
 
-A backend is a server-side application that processes requests from [web clients](./web-infrastructure.md#web-client), implements business logic, and reads from or writes to a [database](./database.md#what-is-a-database). It exposes a [web API](./web-api.md#what-is-a-web-api) that clients communicate with over a [protocol](./communication-protocol.md#what-is-a-protocol).
+A backend is a server-side application that processes requests from [web clients](./web-infrastructure.md#web-client), implements business logic, and reads from or writes to a [database](./database.md#what-is-a-database). It exposes a [web API](./web-api.md#what-is-a-web-api) that clients communicate with over a [protocol](./computer-networks.md#protocol).
 
 Docs:
 

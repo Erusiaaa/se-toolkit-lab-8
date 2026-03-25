@@ -14,7 +14,7 @@
 
 ## What is a web API
 
-A web API is an [API](./api.md#what-is-an-api) that a [web server](./web-infrastructure.md#web-server) exposes over a [protocol](./communication-protocol.md#what-is-a-protocol). It accepts requests from [web clients](./web-infrastructure.md#web-client) and returns structured responses.
+A web API is an [API](./api.md#what-is-an-api) that a [web server](./web-infrastructure.md#web-server) exposes over a [protocol](./computer-networks.md#protocol). It accepts requests from [web clients](./web-infrastructure.md#web-client) and returns structured responses.
 
 Docs:
 
@@ -69,7 +69,7 @@ Examples:
 
 ## API types
 
-A [web API](#what-is-a-web-api) is built on top of a [protocol](./communication-protocol.md#what-is-a-protocol).
+A [web API](#what-is-a-web-api) is built on top of a [protocol](./computer-networks.md#protocol).
 
 Common API types:
 

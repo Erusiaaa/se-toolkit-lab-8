@@ -10,7 +10,7 @@
 
 A `REST` API (`Representational State Transfer`) is a style of [API](./api.md#what-is-an-api) design that uses [`HTTP`](./http.md#what-is-http) methods and noun-based resource paths to expose resources.
 
-It is not a [protocol](./communication-protocol.md#what-is-a-protocol) — it is a set of conventions for structuring an API on top of `HTTP`.
+It is not a [protocol](./computer-networks.md#protocol) — it is a set of conventions for structuring an API on top of `HTTP`.
 
 Docs:
 

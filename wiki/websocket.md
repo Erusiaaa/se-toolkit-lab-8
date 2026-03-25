@@ -9,7 +9,7 @@
 
 ## What is `WebSocket`
 
-`WebSocket` is a [communication protocol](./communication-protocol.md#what-is-a-protocol) that provides full-duplex (two-way) communication between a [web client](./web-infrastructure.md#web-client) and a [web server](./web-infrastructure.md#web-server) over a single, long-lived connection.
+`WebSocket` is a [communication protocol](./computer-networks.md#protocol) that provides full-duplex (two-way) communication between a [web client](./web-infrastructure.md#web-client) and a [web server](./web-infrastructure.md#web-server) over a single, long-lived connection.
 Unlike [`HTTP`](./http.md#what-is-http), where the [client](./web-infrastructure.md#web-client) must initiate every exchange, `WebSocket` allows both sides to send messages at any time after the connection is established.
 
 Docs:
