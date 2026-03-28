@@ -1006,12 +1006,14 @@ source = { virtual = "nanobot" }
 dependencies = [
     { name = "lms-mcp" },
     { name = "nanobot-ai" },
+    { name = "nanobot-webchat" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "lms-mcp", editable = "mcp" },
     { name = "nanobot-ai", specifier = ">=0.1.4.post6" },
+    { name = "nanobot-webchat", directory = "nanobot-websocket-channel/nanobot-webchat" },
 ]
 
 [[package]]
@@ -1053,6 +1055,36 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/3d/53/d45cd452d826f6a6bc1464f1c46d5c5fe81701eba59804a1ab343f1c39e4/nanobot_ai-0.1.4.post6.tar.gz", hash = "sha256:7034f7a04f75132ee0117d3d863bc3f7f76487fb807f3b0677c84ab57fd582ea", size = 240730, upload-time = "2026-03-27T15:09:02.425Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/db/89/9eebe58d39e9f5379051c980c92749e0a26bf0caa4a7a1e4fd4008ae75f3/nanobot_ai-0.1.4.post6-py3-none-any.whl", hash = "sha256:86ffd3819f0e1994185b55676ef55c41b06f1a0788ebfe2e292937dcfdb870f2", size = 268205, upload-time = "2026-03-27T15:09:00.783Z" },
+]
+
+[[package]]
+name = "nanobot-channel-protocol"
+version = "0.1.0"
+source = { editable = "nanobot-websocket-channel/nanobot-channel-protocol" }
+dependencies = [
+    { name = "pydantic" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "pydantic", specifier = ">=2.12.0,<3.0.0" }]
+
+[[package]]
+name = "nanobot-webchat"
+version = "1.0.0"
+source = { directory = "nanobot-websocket-channel/nanobot-webchat" }
+dependencies = [
+    { name = "aiohttp" },
+    { name = "nanobot-ai" },
+    { name = "nanobot-channel-protocol" },
+    { name = "websockets" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "aiohttp", specifier = ">=3.13.0,<4.0.0" },
+    { name = "nanobot-ai" },
+    { name = "nanobot-channel-protocol", editable = "nanobot-websocket-channel/nanobot-channel-protocol" },
+    { name = "websockets", specifier = ">=15.0" },
 ]
 
 [[package]]

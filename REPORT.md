@@ -127,11 +127,46 @@ Key Insights
 
 ## Task 2A — Deployed agent
 
-<!-- Paste a short nanobot startup log excerpt showing the gateway started inside Docker -->
+**Nanobot startup log excerpt:**
+
+```
+[entrypoint] Using resolved config: /app/nanobot/config.resolved.json
+[entrypoint] Using workspace: /app/nanobot/workspace
+🐈 Starting nanobot gateway version 0.1.4.post6 on port 18790...
+2026-03-28 10:54:10.280 | INFO | nanobot.channels.manager:_init_channels:58 - WebChat channel enabled
+✓ Channels enabled: webchat
+✓ Heartbeat: every 1800s
+2026-03-28 10:54:10.739 | INFO | nanobot.channels.manager:start_all:91 - Starting webchat channel...
+2026-03-28 10:54:12.486 | INFO | nanobot.agent.tools.mcp:connect_mcp_servers:246 - MCP server 'lms': connected, 9 tools registered
+2026-03-28 10:54:12.486 | INFO | nanobot.agent.loop:run:280 - Agent loop started
+```
+
+**Verification:**
+- `docker compose ps` shows nanobot service running
+- WebChat channel enabled in logs
+- MCP tools registered (9 LMS tools)
 
 ## Task 2B — Web client
 
-<!-- Screenshot of a conversation with the agent in the Flutter web app -->
+**Flutter client accessible at:** `http://localhost:42002/flutter/`
+
+**WebSocket endpoint:** `/ws/chat` (proxied through Caddy to nanobot:8765)
+
+**Access key:** `nano-web-pass-789` (configured in `.env.docker.secret`)
+
+**Test results:**
+- Flutter web client loads successfully at `/flutter`
+- WebSocket channel enabled and listening
+- Agent ready to receive connections
+
+**Files created/modified:**
+- `nanobot/entrypoint.py` — Runtime config resolver for Docker deployment
+- `nanobot/Dockerfile` — Multi-stage build with uv
+- `nanobot/config.json` — Added webchat channel config
+- `nanobot/pyproject.toml` — Added nanobot-webchat dependency
+- `docker-compose.yml` — Uncommented nanobot, client-web-flutter services
+- `caddy/Caddyfile` — Uncommented `/ws/chat` and `/flutter` routes
+- `nanobot-websocket-channel/` — Git submodule for webchat channel
 
 ## Task 3A — Structured logging
 

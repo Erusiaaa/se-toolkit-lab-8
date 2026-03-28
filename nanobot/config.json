@@ -23,7 +23,11 @@
   "channels": {
     "sendProgress": true,
     "sendToolHints": false,
-    "sendMaxRetries": 3
+    "sendMaxRetries": 3,
+    "webchat": {
+      "enabled": true,
+      "allow_from": ["*"]
+    }
   },
   "tools": {
     "web": {
