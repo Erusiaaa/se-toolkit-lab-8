@@ -15,7 +15,10 @@
       "Bash(docker restart *)",
       "Bash(sleep *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(docker compose *)",
+      "Bash(git submodule *)",
+      "Bash(git restore *)"
     ]
   },
   "$version": 3
