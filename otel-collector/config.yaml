@@ -2,7 +2,7 @@
 #
 # Pipelines:
 #   traces  — receives OTLP traces from instrumented services → VictoriaTraces
-#   logs    — receives OTLP logs from instrumented services  → VictoriaLogs
+#   logs    — receives OTLP logs from instrumented services  → VictoriaLog
 
 receivers:
   otlp:
