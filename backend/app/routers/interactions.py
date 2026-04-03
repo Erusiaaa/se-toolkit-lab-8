@@ -51,3 +51,9 @@ async def post_interaction(
             status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
             detail=str(exc.orig),
         )
+    except Exception as exc:
+        await session.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=f"Database error: {exc}",
+        ) from exc
