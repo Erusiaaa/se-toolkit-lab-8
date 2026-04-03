@@ -1,4 +1,4 @@
-"""API key authentication dependency."""
+"""API key authentication dependency"""
 
 import logging
 
